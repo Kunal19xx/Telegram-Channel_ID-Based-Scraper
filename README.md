@@ -213,8 +213,6 @@ The expected output is the same a described above but data will be save using th
 
 This Python script reads a file containing collected messages and generates a new dataset with links from the specified channel. By default, the resulting dataset is stored in the output/data/<channel_name> directory.
 
-If you provided a specific directory to save collected data, you need to provide the same path to use this script.
-
 ### Options
 
 If a specific directory was not provided in `main.py`, run:
