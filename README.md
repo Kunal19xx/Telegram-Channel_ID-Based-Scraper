@@ -4,21 +4,16 @@
 
 ---
 
-[![GitHub forks](https://img.shields.io/github/forks/estebanpdl/telegram-tracker.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/estebanpdl/telegram-tracker/network/)
-[![GitHub stars](https://img.shields.io/github/stars/estebanpdl/telegram-tracker?style=social)](https://github.com/estebanpdl/telegram-tracker/stargazers)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/estebanpdl/telegram-tracker/blob/main/LICENCE)
-[![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://twitter.com/estebanpdl)
-[![Made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
-[![Twitter estebanpdl](https://badgen.net/badge/icon/twitter?icon=twitter&label)](https://twitter.com/estebanpdl)
-
 ---
 </div>
 
 ## Overview
 
-This tool connects to Telegram's API. It generates JSON files containing channel's data, including channel's information and posts. You can search for a specific channel, or a set of channels provided in a text file (one channel per line.)
+Currrently some Telegram channels use special characters in channel name or sometimes keep the name hidden making scraping impossible by ususal method. This tool uses the channel ID to fetch information from the channel such as messages, posts etc.
 
-Files are saved by default in a folder called *output/data*. These folders are created by the script. You can also give a specific output directory to store collected data.
+Upon opening a Telegram channel from the browser, a URL is generated, such as https://web.telegram.org/a/#-1001234567890. In this case, the ID is -1001234567890.
+
+This tool a modification on this project https://github.com/estebanpdl/telegram-tracker.
 
 **Software required**
 
@@ -45,14 +40,14 @@ Installing
 - **Via git clone**
 
 ```
-git clone https://github.com/estebanpdl/telegram-api.git
+git clone https://github.com/Kunal19xx/telegram-channel-id-based-scraper
 ```
 
-This will create a directory called `telegram-tracker` which contains the Python scripts. Cloning allows you to easily upgrade and switch between available releases.
+This will create a directory called `telegram-channel-id-based-scraper` which contains the Python scripts. Cloning allows you to easily upgrade and switch between available releases.
 
 - **From the github download button**
 
-Download the ZIP file from github and use your favorite zip utility to unpack the file `telegram-tracker.zip` on your preferred location.
+Download the ZIP file from github and use your favorite zip utility to unpack the file `telegram-channel-id-based-scraper.zip` on your preferred location.
 
 **After cloning or downloding the repository, install the libraries from `requirements.txt`.**
 
@@ -91,6 +86,7 @@ This Python script will connect to Telegram's API and handle your API request.
 ### Options
 
 * `--telegram-channel` Specifies Telegram Channel to download data from.
+* `--telegram-channel-id` Specifies Telegram Channel ID to download data from.
 * `--batch-file` File containing Telegram Channels to download data from, one channel per line.
 * `--limit-download-to-channel-metadata` Will collect channels metadata only, not channel's messages. (default = False)
 * `--output, -o` Specifies a folder to save collected data. If not given, script will generate a default folder called `./output/data`
@@ -124,7 +120,10 @@ This Python script will connect to Telegram's API and handle your API request.
 ### **Basic request**
 
 ```
-python main.py --telegram-channel channelname`
+python main.py --telegram-channel channelname
+```
+```
+python main.py --telegram-channel-id channel_ID
 ```
 
 **Expected output**
@@ -205,6 +204,31 @@ python main.py --telegram-channel channelname --output ./path/to/chosen/director
 ```
 
 The expected output is the same a described above but data will be save using the chosen directory.
+
+<br />
+
+---
+
+## `link_scraper.py`
+
+This Python script reads the collected messages file and creates a new dataset containing links from the requested channel. By default, the created dataset will be located in the `output/data/<channel_name>` folder.
+
+If you provided a specific directory to save collected data, you need to provide the same path to use this script.
+
+### Options
+
+If a specific directory was not provided in `main.py`, run:
+
+```
+python link_scraper.py --telegram-channel-id <eg. - -1001234567890> --url-domain <eg. - fkrt, myntr, amazon, teraboxapp etc.>
+```
+
+If --url-domain portion is not provided, it will get all the links in messages starting with https. This option will create a dataset: `https_DOMAIN_links.csv`, a file containing https links from the requested channel with specific domain name. One can use channel name as well. Example given below.
+
+```
+python link_scraper.py --telegram-channel-id -1001234567890 --url-domain fkrt
+python link_scraper.py --telegram-channel channel_name --url-domain fkrt
+```
 
 <br />
 
