@@ -10,7 +10,9 @@
 ## Overview
 
 Currrently some Telegram channels use special characters in channel name or sometimes keep the name hidden making scraping impossible by ususal method. This tool uses the channel ID to fetch information from the channel such as messages, posts etc.
+
 Upon opening a Telegram channel from the browser, a URL is generated, such as https://web.telegram.org/a/#-1001234567890. In this case, the ID is -1001234567890.
+
 This tool a modification on this project https://github.com/estebanpdl/telegram-tracker.
 
 **Software required**
