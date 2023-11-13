@@ -4,21 +4,14 @@
 
 ---
 
-[![GitHub forks](https://img.shields.io/github/forks/estebanpdl/telegram-tracker.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/estebanpdl/telegram-tracker/network/)
-[![GitHub stars](https://img.shields.io/github/stars/estebanpdl/telegram-tracker?style=social)](https://github.com/estebanpdl/telegram-tracker/stargazers)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/estebanpdl/telegram-tracker/blob/main/LICENCE)
-[![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://twitter.com/estebanpdl)
-[![Made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
-[![Twitter estebanpdl](https://badgen.net/badge/icon/twitter?icon=twitter&label)](https://twitter.com/estebanpdl)
-
 ---
 </div>
 
 ## Overview
 
-This tool connects to Telegram's API. It generates JSON files containing channel's data, including channel's information and posts. You can search for a specific channel, or a set of channels provided in a text file (one channel per line.)
+Currrently some Telegram channels use special characters in channel name or sometimes keep the name hidden making scraping impossible by ususal method. This tool uses the channel ID to fetch information from the channel such as messages, posts etc. Channel IDs are available from web browser URLs. (eg.- https://web.telegram.org/a/#-1001234567890) Here ID is -1001234567890.
 
-Files are saved by default in a folder called *output/data*. These folders are created by the script. You can also give a specific output directory to store collected data.
+This tool a modification on this project https://github.com/estebanpdl/telegram-tracker.
 
 **Software required**
 
