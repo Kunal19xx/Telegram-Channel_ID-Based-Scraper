@@ -211,7 +211,7 @@ The expected output is the same a described above but data will be save using th
 
 ## `link_scraper.py`
 
-This Python script reads the collected messages file and creates a new dataset containing links from the requested channel. By default, the created dataset will be located in the `output/data/<channel_name>` folder.
+This Python script reads a file containing collected messages and generates a new dataset with links from the specified channel. By default, the resulting dataset is stored in the output/data/<channel_name> directory.
 
 If you provided a specific directory to save collected data, you need to provide the same path to use this script.
 
