@@ -125,7 +125,10 @@ This Python script will connect to Telegram's API and handle your API request.
 ### **Basic request**
 
 ```
-python main.py --telegram-channel channelname`
+python main.py --telegram-channel channelname
+```
+```
+python main.py --telegram-channel-id channel_ID
 ```
 
 **Expected output**
@@ -225,11 +228,11 @@ If a specific directory was not provided in `main.py`, run:
 python link_scraper.py --telegram-channel-id <eg. - -1001234567890> --url-domain <eg. - fkrt, myntr, amazon, teraboxapp etc.>
 ```
 
-If --url-domain <eg. - fkrt, myntr, amazon, teraboxapp etc.> portion is not provided, it will get all the links in messages starting with https. These option will create a dataset: `https_DOMAIN_links.csv`, a file containing https links from the requested channel ID. One can use channel name as well. Example given below.
+If --url-domain portion is not provided, it will get all the links in messages starting with https. This option will create a dataset: `https_DOMAIN_links.csv`, a file containing https links from the requested channel with specific domain name. One can use channel name as well. Example given below.
 
 ```
 python link_scraper.py --telegram-channel-id -1001234567890 --url-domain fkrt
-python link_scraper.py --telegram-channel hot_deals --url-domain fkrt
+python link_scraper.py --telegram-channel channel_name --url-domain fkrt
 ```
 
 <br />
