@@ -65,11 +65,15 @@ def create_dirs(root, subfolders=None):
 def cmd_request_type(args):
 	'''
 	'''
+	tm_channel_id = args['telegram_channel_id']
 	tm_channel = args['telegram_channel']
 	batch_file = args['batch_file']
-
-	req_type = 'channel' if tm_channel != None else 'batch'
-	req_input = tm_channel if tm_channel != None else batch_file
+	if tm_channel_id:
+		req_type = 'channel_id'
+		req_input = tm_channel_id
+	else:
+		req_type = 'channel' if tm_channel != None else 'batch'
+		req_input = tm_channel if tm_channel != None else batch_file
 
 	return req_type, req_input
 
