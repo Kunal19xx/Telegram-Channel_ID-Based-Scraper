@@ -1,6 +1,6 @@
 <div align="center">
 
-# **Telegram-API**: `a Python-based open-source tool for Telegram`
+# **Telegram-Scraper**: `a Python-based open-source tool for Telegram Channel Scraping`
 
 ---
 
