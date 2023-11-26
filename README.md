@@ -17,7 +17,7 @@ This tool is a modification on this project https://github.com/estebanpdl/telegr
 
 **Software required**
 
-* [Python 3.x](https://www.python.org/)
+* [Python 3.9 or above](https://www.python.org/)
 * [Telegram API credentials](https://my.telegram.org/auth?to=apps)
 	+ Telegram account
 	+ App `api_id`
